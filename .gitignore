@@ -1,4 +1,7 @@
 MySite/settings.py
+/static/
+/media/
+gunicorn-error-log
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

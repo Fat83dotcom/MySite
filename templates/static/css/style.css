@@ -1,0 +1,21 @@
+:root{
+    --header-background: #0c192c;
+    --background-index: #0c192c;
+    --background-others:var(--font-color-light);
+    --font-color-light: rgb(181, 193, 211);
+    --font-color-dark: var(--background-index);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background: var(--background-others);
+}
+
+.content-index{
+    position: relative;
+    z-index: 3;
+}

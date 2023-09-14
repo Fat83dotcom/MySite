@@ -19,3 +19,6 @@ body{
     position: relative;
     z-index: 3;
 }
+.content-footer{
+    color: var(--font-color-light);
+}

@@ -1,5 +1,29 @@
-{%extends 'base.html'%}
+{%extends 'baseIndex.html'%}
+{% load static %}
 
 {%block content%}
-    <h1>Hello World</h1>
+    <section class="content-index">
+        <h1 class="m-5 text-end index-h1-opacity">Fernando Mendes Web Developer</h1>
+        <h5 class="m-5 text-end">Criação e Desenvolvimento de Sites e Sistemas para Internet</h5>
+    </section>
+    <div class="conteiner-bubbles">
+        <div class="bubbles" id="bubbles">
+            <span style="--i:12"></span>
+            <span style="--i:1"></span>
+            <span style="--i:28"></span>
+            <span style="--i:14"></span>
+            <span style="--i:16"></span>
+            <span style="--i:8"></span>
+            <span style="--i:19"></span>
+            <span style="--i:26"></span>
+            <span style="--i:2"></span>
+            <span style="--i:5"></span>
+            <span style="--i:35"></span>
+            <span style="--i:17"></span>
+            <span style="--i:6"></span>
+            <span style="--i:7"></span>
+            <span style="--i:21"></span>
+        </div>
+    </div>
+    <script src="{% static '/js/bubblesChangeOpacity.js'%}"></script>
 {%endblock content%}

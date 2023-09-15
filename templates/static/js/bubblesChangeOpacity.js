@@ -3,5 +3,5 @@ window.addEventListener('load', ()=>{
     element.style.display = 'flex'
     setTimeout(()=>{
         element.style.opacity = '1'
-    }, 3000)
+    }, 2000)
 })

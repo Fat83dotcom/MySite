@@ -1,0 +1,10 @@
+/* @media (max-width: 600px) {
+    .conteiner-bubbles {
+        position: fixed;
+        width: 40vh;
+        height: 100vh;
+        top: 0px;
+        z-index: 1;
+        overflow: hidden;
+    }
+} */

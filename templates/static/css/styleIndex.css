@@ -4,6 +4,7 @@
     --background-others:var(--font-color-light)
     --font-color-light: rgb(181, 193, 211);
     --font-color-dark: var(--background-index);
+    --font-color-content: #638fd1;
 }
 *{
     margin: 0;

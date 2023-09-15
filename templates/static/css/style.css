@@ -14,11 +14,11 @@ body{
     min-height: 100vh;
     background: var(--background-others);
 }
-
 .content-index{
     position: relative;
     z-index: 3;
 }
-.content-footer{
-    color: var(--font-color-light);
+footer{
+    width: 100%;
+    color: var(--font-color-dark);
 }

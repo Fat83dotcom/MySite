@@ -18,6 +18,17 @@ body{
 .index-h1-color {
     color: var(--font-color-light);
 }
+.index-h5-color{
+    color: var(--font-color-content);
+}
+#bubbles{
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+}
+#icons{
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+}
 .conteiner-bubbles {
     position: fixed;
     width: 100%;

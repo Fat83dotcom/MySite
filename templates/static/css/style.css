@@ -4,6 +4,7 @@
     --background-others:var(--font-color-light);
     --font-color-light: rgb(181, 193, 211);
     --font-color-dark: var(--background-index);
+    --font-color-content: #638fd1;
 }
 *{
     margin: 0;
@@ -14,11 +15,40 @@ body{
     min-height: 100vh;
     background: var(--background-others);
 }
-.content-index{
-    position: relative;
-    z-index: 3;
-}
+
 footer{
     width: 100%;
     color: var(--font-color-dark);
+}
+.blog-h1-color{
+    color: var(--font-color-dark);
+}
+.blog-h5-color{
+    color: var(--font-color-content);
+}
+.css-post-card a{
+    text-decoration: none;
+    color: var(--font-color-dark);
+}
+.css-post-card p{
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--font-color-content);
+}
+.css-post-card{
+    border: solid 0.3px var(--font-color-dark);
+    box-shadow: 1px 1px 1px var(--background-index);
+    transition: all 500ms ease-in-out;
+}
+.css-post-card:hover{
+    box-shadow: 0 0 4px var(--background-index);
+    transform: scale(1.04);
+}
+a{
+    color: var(--font-color-light);
+    text-decoration: none;
+    transition: all 500ms ease-in-out;
+}
+a:hover{
+    color: var(--font-color-content);
 }

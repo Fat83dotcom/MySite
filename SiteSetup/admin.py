@@ -17,9 +17,18 @@ class MenuLinkInLine(admin.TabularInline):
 
 @admin.register(SiteSetup)
 class SiteSetupAdmin(admin.ModelAdmin):
-    list_display = 'title', 'description'
-    list_display_links = 'title', 'description'
-    search_fields = 'title', 'description'
+    list_display = (
+        'title', 'index_description_1',
+        'index_description_2', 'blog_description'
+    )
+    list_display_links = (
+        'title', 'index_description_1',
+        'index_description_2', 'blog_description'
+    )
+    search_fields = (
+        'title', 'index_description_1',
+        'index_description_2', 'blog_description'
+    )
     inlines = MenuLinkInLine,
 
     def has_add_permission(self, request: HttpRequest) -> bool:

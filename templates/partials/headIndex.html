@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{% static '/css/mediaQueries.css' %}">
     <link rel="stylesheet" href="{% static '/css/styleHeader.css' %}">
     <link rel="stylesheet" href="{% static '/css/styleIndex.css' %}">
-
+    {% if siteSetup.fav_icon %}
+        <link rel="shortcut icon" href="{{ siteSetup.fav_icon.url}}" type="image/png">
+    {% endif %}
     <title>Fernando Mendes</title>
 </head>

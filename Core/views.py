@@ -12,6 +12,16 @@ class BlogView(View):
         return render(request, 'blog/blogIndex.html')
 
 
+class BlogPageView(View):
+    def get(self, request):
+        return render(request, 'blog/page.html')
+
+
+class BlogPostView(View):
+    def get(self, request):
+        return render(request, 'blog/post.html')
+
+
 class PortfolioView(View):
     def get(self, request):
         return render(request, 'portfolio/portfolio.html')

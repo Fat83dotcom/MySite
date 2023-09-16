@@ -11,10 +11,13 @@
             </div>
         </form>
         <div class="d-flex justify-content-around align-items-center w-75">
-            <a href="{% url 'index'%}">Home</a>
-            <a href="{% url 'blog'%}">Blog</a>
-            <a href="{% url 'portfolio'%}">Portfólio</a>
-            <a href="{% url 'about'%}">Sobre</a>
+            {% for link in siteSetup.menulink_set.all%}
+                {% if link.new_tab%}
+                    <a href="{{link.url_Or_Path}}" target="_blank">{{link.text}}</a>
+                {% else %}
+                    <a href="{{link.url_Or_Path}}">{{link.text}}</a>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
 </nav>

@@ -1,1 +1,14 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="container d-flex justify-content-evenly flex-column">
+    <h1 class="m-3 text-center blog-h1-color">{{siteSetup.title}}</h1>
+    <h5 class="m-3 text-center blog-h5-color">{{siteSetup.blog_description}}</h5>
+    <div class="row justify-content-evenly">
+        {% for i in ""|ljust:"9" %}
+            {% include 'partials/postCard.html' with i=forloop.counter0%}
+        {% endfor %}
+    </div>
+
+</section>
+{% endblock %}

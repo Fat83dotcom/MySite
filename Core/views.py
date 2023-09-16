@@ -9,7 +9,7 @@ class IndexView(View):
 
 class BlogView(View):
     def get(self, request):
-        return render(request, 'blog/blog.html')
+        return render(request, 'blog/blogIndex.html')
 
 
 class PortfolioView(View):

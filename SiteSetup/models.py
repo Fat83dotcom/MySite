@@ -26,7 +26,9 @@ class SiteSetup(models.Model):
         verbose_name_plural = 'Setup'
 
     title = models.CharField(max_length=65)
-    description = models.CharField(max_length=255)
+    index_description_1 = models.CharField(max_length=512, default='')
+    index_description_2 = models.CharField(max_length=512, default='')
+    blog_description = models.CharField(max_length=512, default='')
     show_Header = models.BooleanField(default=True)
     show_Search = models.BooleanField(default=True)
     show_Menu = models.BooleanField(default=True)

@@ -4,10 +4,12 @@
 {%block content%}
     <section class="content-index">
         <h1 class="m-5 text-end index-h1-color">{{siteSetup.title}}</h1>
-        <h5 class="m-5 text-end index-h5-color">{{siteSetup.index_description_1}}</h5>
-        <div class="m-5 text-end">
-            <p>Posso ajudar você e sua empresa a criar Sites, Aplicações Web, Modelo de Sistemas e Banco de Dados modernos, personalizados e que se adaptam às suas necessidades e demandas. Entre em <a href="{% url 'about'%}"><span>contato </span></a> e agende um orçamento sem compromisso.</p>
-        </div>
+        {% if siteSetup.show_Description %}
+            <h5 class="m-5 text-end index-h5-color">{{siteSetup.index_description_1}}</h5>
+            <div class="m-5 text-end">
+                <p>Posso ajudar você e sua empresa a criar Sites, Aplicações Web, Modelo de Sistemas e Banco de Dados modernos, personalizados e que se adaptam às suas necessidades e demandas. Entre em <a href="{% url 'about'%}"><span>contato </span></a> e agende um orçamento sem compromisso.</p>
+            </div>
+        {% endif %}
         <div class="container d-flex justify-content-evenly index-h1-color row" id="icons">
             <div class="text-center col">
                 <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">

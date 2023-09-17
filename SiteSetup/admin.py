@@ -30,6 +30,3 @@ class SiteSetupAdmin(admin.ModelAdmin):
         'index_description_2', 'blog_description'
     )
     inlines = MenuLinkInLine,
-
-    def has_add_permission(self, request: HttpRequest) -> bool:
-        return not SiteSetup.objects.exists()

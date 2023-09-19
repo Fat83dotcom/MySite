@@ -1,0 +1,23 @@
+{% if posts and posts.has_other_pages %}
+<nav class="m-4" aria-label="Page navigation example">
+    <ul class="m-0 pagination justify-content-center">
+        {% if posts.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">{{ posts.previous_page_number }}</a></li>
+        {% endif %}
+            <li class="page-item"><a class="page-link" href="{{ posts.number }}">{{ posts.number }}</a></li>
+        {% if posts.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">{{ posts.next_page_number }}</a></li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ posts.next_page_number }}"" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}

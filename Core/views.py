@@ -22,8 +22,12 @@ class BlogView(View):
 
 
 class BlogPostView(View):
-    def get(self, request):
-        return render(request, 'blog/post.html')
+    def get(self, request, slug):
+        result = Post.objects.get(slug=slug)
+        context = {
+            'post': result,
+        }
+        return render(request, 'blog/post.html', context)
 
 
 class PortfolioView(View):

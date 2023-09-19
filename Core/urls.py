@@ -7,5 +7,5 @@ urlpatterns = [
     path('portfolio/', PortfolioView.as_view(), name='portfolio'),
     path('about/', AboutView.as_view(), name='about'),
     path('blog/', BlogView.as_view(), name='blogIndex'),
-    path('blog/post', BlogPostView.as_view(), name='blogPost'),
+    path('blog/post/<slug:slug>/', BlogPostView.as_view(), name='blogPost'),
 ]

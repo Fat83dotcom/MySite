@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from django.views import View
+from Core.models import Post
 
 
 class IndexView(View):
@@ -9,12 +11,14 @@ class IndexView(View):
 
 class BlogView(View):
     def get(self, request):
-        return render(request, 'blog/blogIndex.html')
-
-
-class BlogPageView(View):
-    def get(self, request):
-        return render(request, 'blog/page.html')
+        result = Post.objects.getIsPublished()
+        paginator = Paginator(result, 9)
+        pageNumber = request.GET.get('page')
+        pageObj = paginator.get_page(pageNumber)
+        context = {
+            'posts': pageObj,
+        }
+        return render(request, 'blog/blogIndex.html', context)
 
 
 class BlogPostView(View):

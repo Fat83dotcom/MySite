@@ -5,6 +5,7 @@
     --font-color-light: rgb(181, 193, 211);
     --font-color-dark: var(--background-index);
     --font-color-content: #638fd1;
+    --gray-post-status: #666;
 }
 *{
     margin: 0;
@@ -51,4 +52,13 @@ a{
 }
 a:hover{
     color: var(--font-color-content);
+}
+.post-status{
+    color: var(--gray-post-status);
+}
+.font-color-content{
+    color: var(--font-color-content);
+}
+.post-content-style{
+    
 }

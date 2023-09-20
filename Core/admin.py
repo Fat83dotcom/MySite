@@ -31,15 +31,12 @@ class PageAdmin(admin.ModelAdmin):
     list_filter = 'title', 'slug'
     list_per_page = 10
     ordering = '-id',
-    # prepopulated_fields = {
-    #     'slug': ('name',),
-    # }
 
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
-    list_display = 'id', 'title', 'isPublished', 'createdBy',
-    list_display_links = 'title',
+    list_display = 'id', 'title', 'isPublished', 'createdBy', 'link'
+    list_display_links = 'title', 'link'
     search_fields = 'id', 'slug', 'title', 'excerpt',
     list_per_page = 10
     list_filter = 'isPublished',

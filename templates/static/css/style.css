@@ -69,3 +69,12 @@ footer{
 .css-post-tag a:hover{
     color: var(--font-color-content);
 }
+.post-content-style img{
+    align-self: center;
+
+}
+.post-content-style iframe{
+    align-self: center;
+    height: auto;
+    width: auto;
+}

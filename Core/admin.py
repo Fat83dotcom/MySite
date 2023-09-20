@@ -12,9 +12,6 @@ class TagAdmin(admin.ModelAdmin):
     list_filter = 'name', 'slug'
     list_per_page = 10
     ordering = '-id',
-    # prepopulated_fields = {
-    #     'slug': ('name',),
-    # }
 
 
 @admin.register(Category)
@@ -24,9 +21,6 @@ class CategoryAdmin(admin.ModelAdmin):
     list_filter = 'name', 'slug'
     list_per_page = 10
     ordering = '-id',
-    # prepopulated_fields = {
-    #     'slug': ('name',),
-    # }
 
 
 @admin.register(Page)

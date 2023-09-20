@@ -49,7 +49,6 @@ class PostAdmin(SummernoteModelAdmin):
         'slug': ('title',),
     }
     summernote_fields = ('content',)
-    # autocomplete_fields = 'tagKey', 'categoryKey',
 
     def link(self, post):
         if not post.id:

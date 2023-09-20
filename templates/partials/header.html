@@ -1,7 +1,7 @@
 <nav class="header-nav container-fluid">
     <div class="header d-flex justify-content-end align-self-center h-100">
         {% if siteSetup.show_Search %}
-            <form class="d-flex align-items-end" action="#" method="get" id="searchInput">
+            <form class="d-flex align-items-end" action="{% url 'search' %}" method="get" id="searchInput">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="searchInput" name="search" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">

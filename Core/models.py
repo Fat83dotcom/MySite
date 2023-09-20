@@ -134,6 +134,11 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        if not self.isPublished:
+            return reverse('blogIndex')
+        return reverse('blogPost', kwargs={"slug": self.slug})
+
     def save(self, *args, **kwargs) -> None:
         if not self.slug:
             self.slug = slugfyNew(self.title, 10)

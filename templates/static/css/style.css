@@ -47,20 +47,25 @@ footer{
     box-shadow: 0 0 4px var(--background-index);
     transform: scale(1.04);
 }
-a{
-    color: var(--font-color-light);
-    text-decoration: none;
-    transition: all 500ms ease-in-out;
-}
-a:hover{
-    color: var(--font-color-content);
-}
 .post-status{
     color: var(--gray-post-status);
+}
+.post-status a{
+    text-decoration: none;
+    color: var(--gray-post-status);
+    transition: all 500ms ease-in-out;
+}
+.post-status a:hover{
+    color: var(--font-color-content);
 }
 .font-color-content{
     color: var(--font-color-content);
 }
-.post-content-style{
-    
+.css-post-tag a{
+    color: var(--gray-post-status);
+    transition: all 500ms ease-in-out;
+    text-decoration: none;
+}
+.css-post-tag a:hover{
+    color: var(--font-color-content);
 }

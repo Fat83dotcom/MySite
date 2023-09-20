@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.http.request import HttpRequest
 from SiteSetup.models import MenuLink, SiteSetup
 
 
@@ -18,12 +17,10 @@ class MenuLinkInLine(admin.TabularInline):
 @admin.register(SiteSetup)
 class SiteSetupAdmin(admin.ModelAdmin):
     list_display = (
-        'title', 'index_description_1',
-        'index_description_2', 'blog_description'
+        'title',
     )
     list_display_links = (
-        'title', 'index_description_1',
-        'index_description_2', 'blog_description'
+        'title',
     )
     search_fields = (
         'title', 'index_description_1',

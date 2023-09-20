@@ -3,9 +3,13 @@
 {% block content %}
 <article class="container d-flex justify-content-evenly flex-column">
     <h1 class="m-4 text-center blog-h1-color">{{siteSetup.title}}</h1>
-    <div class="text-center img-fluid">
-        <img class="img-fluid" src="{{post.cover.url}}" alt="{{post.title}}">
-    </div>
+    <hr>
+    {% if post.cover and post.coverInPostContent%}
+        <div class="text-center img-fluid">
+            <img class="img-fluid" src="{{post.cover.url}}" alt="{{post.title}}">
+        </div>
+        <hr>
+    {% endif %}
     <h2 class=" m-4 text-center">{{post.title}}</h2>
     <div class="m-4 container row d-flex justify-content-evenly post-status">
         <div class="d-flex flex-column align-items-center justify-content-center col-lg-4 col-md-6 col-sm-12">

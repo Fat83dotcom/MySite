@@ -2,6 +2,7 @@ from django.db import models
 from utils.randstr import slugfyNew
 from django.contrib.auth.models import User
 from utils.images import resizeImage
+from django.urls import reverse
 
 
 class Tag(models.Model):
@@ -104,14 +105,14 @@ class Post(models.Model):
         User,
         on_delete=models.SET_NULL,
         blank=True, null=True,
-        related_name='postCreatedBy'
+        related_name='createdBy'
     )
     updatedAt = models.DateTimeField(auto_now=True)
     updatedBy = models.ForeignKey(
         User,
         on_delete=models.SET_NULL,
         blank=True, null=True,
-        related_name='postUpdatedBy'
+        related_name='updatedBy'
     )
     categoryKey = models.ForeignKey(
         Category, on_delete=models.SET_NULL,

@@ -1,18 +1,18 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 <article class="container d-flex justify-content-evenly flex-column">
-    <h1 class="m-4 text-center blog-h1-color">{{siteSetup.title}}</h1>
+    <h1 class="m-4 text-center blog-h1-color">{{ siteSetup.title }}</h1>
     <hr>
-    {% if post.cover and post.coverInPostContent%}
+    {% if post.cover and post.coverInPostContent %}
         <div class="text-center img-fluid">
-            <img class="img-fluid" src="{{post.cover.url}}" alt="{{post.title}}">
+            <img class="img-fluid" src="{{ post.cover.url }}" alt="{{ post.title }}">
         </div>
         <hr>
     {% endif %}
-    <h2 class=" m-4 text-center">{{post.title}}</h2>
+    <h1 class=" m-4 text-center">{{ post.title }}</h1>
     <hr>
-    <div class="m-4 container row d-flex justify-content-evenly post-status">
+    <section class="m-4 container row d-flex justify-content-evenly post-status">
         <div class="d-flex flex-column align-items-center justify-content-center col-lg-4 col-md-6 col-sm-12">
             <div class="d-flex flex-row align-items-center justify-content-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
@@ -50,18 +50,18 @@
                 <a href="{% url 'category' post.categoryKey.slug %}"><p class="m-0 fs-6">{{ post.categoryKey.name }}</p></a>
             {% endif %}
         </div>
-    </div>
+    </section>
     <hr>
     <section class="css-main-post">
-        <section class="text-center">
+        <div class="text-center">
             <p class="fst-italic font-color-content">
                 {{ post.excerpt | safe }}
             </p>
-        </section>
+        </div>
         <hr>
-        <section class="container w-50 post-content-style img-fluid">
+        <div class="d-flex flex-column container w-50 post-content-style">
             {{ post.content | safe }}
-        </section>
+        </div>
     </section>
     <hr>
     {% if post.tagKey.all.exists %}

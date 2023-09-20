@@ -46,18 +46,37 @@
                 </svg>
                 <p class="m-2 fs-6 fw-lighter">Category</p>
             </div>
-            <p class="m-0 fs-6">{{ post.categoryKey.name }}</p>
+            {% if post.categoryKey %}
+                <a href="{% url 'category' post.categoryKey.slug %}"><p class="m-0 fs-6">{{ post.categoryKey.name }}</p></a>
+            {% endif %}
         </div>
     </div>
+    <hr>
     <section class="css-main-post">
         <section class="text-center">
             <p class="fst-italic font-color-content">
-                {{ post.excerpt }}
+                {{ post.excerpt | safe }}
             </p>
         </section>
+        <hr>
         <section class="container w-50 post-content-style img-fluid">
             {{ post.content | safe }}
         </section>
     </section>
-</article>
+    <hr>
+    {% if post.tagKey.all.exists %}
+        <section class="d-flex justify-content-start align-items-center flex-row css-post-tag">
+            <h6 class="m-0 text-center">Tags:</h6>
+            {% for tag in post.tagKey.all %}
+                <div class="ms-2 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                    </svg>
+                    <a href="{% url 'tag' tag.slug %}">{{ tag.name }}</a>
+                </div>
+            {% endfor %}     
+        </section>
+    {% endif %}
+    </article>
 {% endblock %}

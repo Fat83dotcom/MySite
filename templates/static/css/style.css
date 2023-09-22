@@ -32,6 +32,10 @@ footer{
 .css-post-card a{
     text-decoration: none;
     color: var(--font-color-dark);
+    transition: all 500ms ease-in-out;
+}
+.css-post-card a:hover{
+    color: var(--font-color-content);
 }
 .css-post-card p{
     font-style: italic;

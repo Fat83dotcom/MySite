@@ -1,8 +1,8 @@
-from django.shortcuts import render
-from django.core.paginator import Paginator
-from django.views import View
 from Core.models import Post
+from django.views import View
 from django.db.models import Q
+from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 
 
 PER_PAGE = 9
@@ -13,70 +13,77 @@ class IndexView(View):
         return render(request, 'site/index.html')
 
 
-class BlogView(View):
-    def get(self, request):
-        result = Post.objects.getIsPublished()
-        paginator = Paginator(result, PER_PAGE)
-        pageNumber = request.GET.get('page')
-        pageObj = paginator.get_page(pageNumber)
-        context = {
-            'posts': pageObj,
-        }
-        return render(request, 'blog/blogIndex.html', context)
+class BlogView(ListView):
+    model = Post
+    template_name = 'blog/blogIndex.html'
+    context_object_name = 'posts'
+    ordering = '-id',
+    paginate_by = PER_PAGE
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = Post.objects.getIsPublished()
+        return queryset
 
 
-class BlogPostView(View):
-    def get(self, request, slug):
-        result = Post.objects.get(slug=slug)
-        context = {
-            'post': result,
-        }
-        return render(request, 'blog/post.html', context)
+class BlogPostView(ListView):
+    model = Post
+    context_object_name = 'post'
+    template_name = 'blog/post.html'
+
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.get(slug=self.kwargs.get('slug'))
+        return queryset
 
 
-class CategoryView(View):
-    def get(self, request, slug):
-        result = Post.objects.getIsPublished().filter(
-            categoryKey__slug=slug
+class CategoryView(BlogView):
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(
+            categoryKey__slug=self.kwargs.get('slug')
         )
-        paginator = Paginator(result, PER_PAGE)
-        pageNumber = request.GET.get('page')
-        pageObj = paginator.get_page(pageNumber)
-        context = {
-            'posts': pageObj,
-        }
-        return render(request, 'blog/blogIndex.html', context)
+        return queryset
 
 
-class TagView(View):
-    def get(self, request, slug):
-        result = Post.objects.getIsPublished().filter(
-            tagKey__slug=slug
+class TagView(BlogView):
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(
+            tagKey__slug=self.kwargs.get('slug')
         )
-        context = {
-            'posts': result,
-        }
-        return render(request, 'blog/blogIndex.html', context)
+        return queryset
 
 
-class SearchView(View):
-    def get(self, request):
-        search: str = request.GET.get('search').strip()
-        result = Post.objects.getIsPublished().filter(
-            Q(title__icontains=search) |
-            Q(excerpt__icontains=search) |
-            Q(content__icontains=search)
+class SearchView(BlogView):
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
+        self.__search = None
+
+    def get(self, request, *args, **kwargs):
+        self.__search = request.GET.get('search').strip()
+        return super().get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(
+            Q(title__icontains=self.__search) |
+            Q(excerpt__icontains=self.__search) |
+            Q(content__icontains=self.__search)
         )
-        paginator = Paginator(result, PER_PAGE)
-        pageNumber = request.GET.get('page')
-        pageObj = paginator.get_page(pageNumber)
-        context = {
-            'posts': pageObj,
-        }
-        return render(request, 'blog/blogIndex.html', context)
+        return queryset
 
 
-class PortfolioView(View):
+class PortfolioView(DetailView):
     def get(self, request):
         return render(request, 'portfolio/portfolio.html')
 

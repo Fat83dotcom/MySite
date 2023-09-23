@@ -63,12 +63,14 @@ class TagView(BlogView):
 
 
 class SearchView(BlogView):
-    def __init__(self, **kwargs) -> None:
-        super().__init__(**kwargs)
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
         self.__search = None
 
     def get(self, request, *args, **kwargs):
         self.__search = request.GET.get('search').strip()
+        if self.__search == '' or self.__search is None:
+            return redirect('index')
         return super().get(request, *args, **kwargs)
 
     def get_queryset(self):

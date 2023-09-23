@@ -1,7 +1,7 @@
 from Core.models import Post
 from django.views import View
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 
 
@@ -26,17 +26,15 @@ class BlogView(ListView):
         return queryset
 
 
-class BlogPostView(ListView):
-    model = Post
+class BlogPostView(DetailView):
+    slug_field = 'slug'
     context_object_name = 'post'
     template_name = 'blog/post.html'
-
-    def get(self, request, *args, **kwargs):
-        return super().get(request, *args, **kwargs)
+    queryset = Post.objects.getIsPublished()
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.get(slug=self.kwargs.get('slug'))
+        queryset = queryset.filter(slug=self.kwargs.get('slug'))
         return queryset
 
 

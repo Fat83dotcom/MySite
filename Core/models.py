@@ -51,6 +51,83 @@ class Category(models.Model):
         return self.name
 
 
+class Portfolio(models.Model):
+    class Meta:
+        verbose_name = 'Portfolio'
+        verbose_name_plural = 'Portifolios'
+    title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    slug = models.SlugField(
+        unique=True,
+        default='',
+        null=False,
+        blank=True,
+        max_length=255
+    )
+
+    def __str__(self) -> str:
+        return self.title
+
+
+class PortfolioProjects(models.Model):
+    class Meta:
+        verbose_name = 'Portfolio_Project'
+        verbose_name_plural = 'Portifolio_Project'
+
+    PORJECT_CHOICE = (
+        ('P', 'Pessoal'),
+        ('C', 'Cliente'),
+    )
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    typeProject = models.CharField(max_length=1, choices=PORJECT_CHOICE)
+    portfolio = models.ForeignKey(
+        Portfolio,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='portfolioProject'
+    )
+    pictures = models.ImageField(
+        upload_to='projects/%Y/%m/',
+        blank=True,
+        default=''
+    )
+    slug = models.SlugField(
+        unique=True,
+        default='',
+        null=False,
+        blank=True,
+        max_length=255
+    )
+    isPublished = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs) -> None:
+        if not self.slug:
+            self.slug = slugfyNew(self.name, 10)
+
+        super().save(*args, **kwargs)
+
+        if self.pictures:
+            resizeImage(self.pictures, 500)
+
+
+class ProjectsLinks(models.Model):
+    name = models.CharField(max_length=50)
+    link = models.CharField(max_length=2048, null=True)
+    project = models.ForeignKey(
+        PortfolioProjects,
+        on_delete=models.SET_NULL,
+        related_name='linkProject',
+        null=True
+    )
+
+    def __str__(self):
+        return self.name
+
+
 class Page(models.Model):
     class Meta:
         verbose_name = 'Page'

@@ -78,12 +78,28 @@ footer{
 .css-post-tag a:hover{
     color: var(--font-color-content);
 }
-.post-content-style img{
-    align-self: center;
-
+.limit-size{
+    width: 300px;
+    height: 150px;
+    overflow: hidden;
 }
-.post-content-style iframe{
-    align-self: center;
-    height: auto;
-    width: auto;
+.limit-size-fit{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.css-portf-projects{
+    color: var(--font-color-dark);
+    background: var(--background-color-projects-portf);
+    border-radius: 3px;
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    height: 90%;
+    /* padding: auto; */
+}
+.css-portf-projects-a{
+    padding: auto;
+}
+.css-portf-projects-a a{
+    text-decoration: none;
 }

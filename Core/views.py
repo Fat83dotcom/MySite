@@ -1,4 +1,4 @@
-from Core.models import Post
+from Core.models import Post, Portfolio
 from django.views import View
 from django.db.models import Q
 from django.shortcuts import render, redirect
@@ -83,9 +83,22 @@ class SearchView(BlogView):
         return queryset
 
 
-class PortfolioView(DetailView):
-    def get(self, request):
-        return render(request, 'portfolio/portfolio.html')
+class PortfolioView(View):
+    template_name = 'portfolio/portfolio.html'
+
+    def get(self, request, *args, **kwargs):
+        result = Portfolio.objects.all().first()
+        print(result)
+        context = {
+            'portf': result,
+        }
+        return render(request, self.template_name, context)
+
+
+class PortfolioProjectView(View):
+    def get(self, request, *args, **kwargs):
+        return render()
+
 
 
 class AboutView(View):

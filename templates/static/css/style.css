@@ -3,9 +3,11 @@
     --background-index: #0c192c;
     --background-others:var(--font-color-light);
     --font-color-light: rgb(181, 193, 211);
-    --font-color-dark: var(--background-index);
+    --font-color-dark: var(#0c192c);
+    --border-post-card: #0c192c60;
     --font-color-content: #638fd1;
     --gray-post-status: #666;
+    --background-color-projects-portf: #6668
 }
 *{
     margin: 0;

@@ -1,9 +1,9 @@
 <article class="col-lg-4 col-md-6 col-sm-12 d-flex">
     <div class="m-2 d-flex flex-column justify-content-between css-post-card">
         {% if post.cover %}
-        <div class="m-2 text-center">
+        <div class="m-2 text-center limit-size">
             <a href="{{ post.get_absolute_url }}">
-                <img class="rounded img-thumbnail"
+                <img class="rounded img-fluid limit-size-fit"
                 loading="lazy"
                 src="{{ post.cover.url }}" 
                 alt="{{ post.title }}">

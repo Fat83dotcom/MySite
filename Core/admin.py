@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from Core.models import Tag, Category, Page, Post
+from Core.models import Portfolio, PortfolioProjects, ProjectsLinks
 from django_summernote.admin import SummernoteModelAdmin
 from django.utils.safestring import mark_safe
 
@@ -63,3 +64,22 @@ class PostAdmin(SummernoteModelAdmin):
             obj.createdBy = request.user
 
         obj.save()
+
+
+@admin.register(Portfolio)
+class PortfolioAdmin(admin.ModelAdmin):
+    list_display = 'title',
+    list_display_links = 'title',
+
+
+class ProjectLinksInLine(admin.TabularInline):
+    model = ProjectsLinks
+    extra = 1
+
+
+@admin.register(PortfolioProjects)
+class PortfolioProjectsAdmin(SummernoteModelAdmin):
+    list_display = 'name', 'typeProject', 'isPublished'
+    list_display_links = 'name',
+    list_editable = 'isPublished',
+    inlines = ProjectLinksInLine,

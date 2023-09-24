@@ -47,8 +47,9 @@ footer{
     color: var(--font-color-content);
 }
 .css-post-card{
-    border: solid 0.3px var(--font-color-dark);
-    box-shadow: 1px 1px 1px var(--background-index);
+    border-radius: 3px;
+    border: solid 0.5px var(--border-post-card);
+    box-shadow: 1px 1px 1px var(--border-post-card);
     transition: all 500ms ease-in-out;
 }
 .css-post-card:hover{

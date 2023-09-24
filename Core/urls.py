@@ -1,7 +1,7 @@
 from django.urls import path
 from Core.views import IndexView, PortfolioView, AboutView
 from Core.views import BlogPostView, BlogView, CategoryView
-from Core.views import TagView, SearchView
+from Core.views import TagView, SearchView, PortfolioProjectView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -12,4 +12,9 @@ urlpatterns = [
     path('category/<slug:slug>/', CategoryView.as_view(), name='category'),
     path('tag/<slug:slug>/', TagView.as_view(), name='tag'),
     path('search/', SearchView.as_view(), name='search'),
+    path(
+        'portfolio/<slug:slug>',
+        PortfolioProjectView.as_view(),
+        name='portfProject'
+    ),
 ]

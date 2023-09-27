@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="{% static '/css/styleProject.css' %}">
 </head>
+{% if project.isPublished %}
 <article class="container w-50">
     <div class="background-project">
         <h2>{{ project.name }}</h2>
@@ -16,3 +17,4 @@
         {% endfor %}
     </div>
 </article>
+{% endif %}

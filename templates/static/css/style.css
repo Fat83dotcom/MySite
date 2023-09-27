@@ -101,7 +101,26 @@ footer {
     color: var(--font-color-content);
 }
 
-.limit-size {
+.css-portf-projects {
+    background: var(--background-color-projects-portf);
+    border-radius: 3px;
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    display: flex;
+    flex-direction: column;
+    min-height: 40vh;
+}
+
+.css-portf-projects-a {
+    flex: 1;
+}
+
+.css-portf-projects-a a {
+    color: var(--font-color-dark);
+    text-decoration: none;
+}
+
+/* .limit-size {
     width: 300px;
     height: 150px;
     overflow: hidden;
@@ -111,25 +130,4 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.css-portf-projects {
-    background: var(--background-color-projects-portf);
-    border-radius: 3px;
-    backdrop-filter: blur(13.5px);
-    -webkit-backdrop-filter: blur(13.5px);
-    display: flex;
-    flex-direction: column;
-    min-height: 40vh;
-    /* padding: auto; */
-}
-
-.css-portf-projects-a {
-    flex: 1;
-    /* padding: auto; */
-}
-
-.css-portf-projects-a a {
-    color: var(--font-color-dark);
-    text-decoration: none;
-}
+} */

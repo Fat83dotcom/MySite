@@ -14,16 +14,23 @@
                 style="background-image: url({{ project.pictures.url }});
                 overflow: hidden; object-fit: cover; border-radius: 3px;"
             >
-                <a href="#">
-                    <section class="m-4 d-flex flex-column justify-content-center css-portf-projects">
+                <section class="m-4 d-flex flex-column justify-content-center css-portf-projects">
+                    <a href="#" id="click-modal{{project.slug|replaceMinus:'-'}}">
                         <h1>{{ project.name | safe }}</h1>
-                        <p>{{ project.description | safe }}</p>
-                    </section>
-                </a>
+                        <p>{{ project.descriptionCard | safe }}</p>
+                    </a>
+                </section>
+                <div id="myModal{{project.slug|replaceMinus:'-'}}" class="modal">
+                    <div class="modal-content">
+                      <span id="close{{project.slug|replaceMinus:'-'}}" class="close">&times;</span>
+                      <iframe src="{% url 'portfProject' project.slug %}" frameborder="0"></iframe>
+                    </div>
+                </div>
             </div>
         {% endif %}
         {% endfor %}
     </div>
+    <hr>
     <div class="container row d-flex justify-content-center">
         <h2>Projetos de Clientes</h2>
         {% for project in portf.portfolioProject.all %}

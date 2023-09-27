@@ -129,33 +129,6 @@ class ProjectsLinks(models.Model):
         return self.name
 
 
-class Page(models.Model):
-    class Meta:
-        verbose_name = 'Page'
-        verbose_name_plural = 'Pages'
-
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(
-        unique=True,
-        default='',
-        null=False,
-        blank=True,
-        max_length=255
-    )
-    isPublished = models.BooleanField(
-        default=False, help_text='Marque para publicar.'
-    )
-    content = models.TextField()
-
-    def save(self, *args, **kwargs) -> None:
-        if not self.slug:
-            self.slug = slugfyNew(self.title, 10)
-        return super().save(*args, **kwargs)
-
-    def __str__(self) -> str:
-        return self.title
-
-
 class PostManager(models.Manager):
     def getIsPublished(self):
         return self.filter(isPublished=True).order_by('-id')

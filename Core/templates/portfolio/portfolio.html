@@ -39,15 +39,51 @@
                 style="background-image: url({{ project.pictures.url }});
                 overflow: hidden; object-fit: cover; border-radius: 3px;"
             >   
-                <a href="#">
-                    <section class="m-4 d-flex flex-column justify-content-center css-portf-projects">
+                <section class="m-4 d-flex flex-column justify-content-center css-portf-projects">
+                    <a href="#" id="click-modal{{project.slug|replaceMinus:'-'}}">
                         <h1>{{ project.name | safe }}</h1>
-                        <p>{{ project.description | safe }}</p>
-                    </section>
-                </a>
+                        <p>{{ project.descriptionCard | safe }}</p>
+                    </a>
+                </section>
+                <div id="myModal{{project.slug|replaceMinus:'-'}}" class="modal">
+                    <div class="modal-content">
+                      <span id="close{{project.slug|replaceMinus:'-'}}" class="close">&times;</span>
+                      <iframe src="{% url 'portfProject' project.slug %}" frameborder="0"></iframe>
+                    </div>
+                </div>
             </div>
         {% endif %}
         {% endfor %}
     </div>
+
 </article>
+{% for project in portf.portfolioProject.all %}
+    {% if project.isPublished %}
+        <script>
+            var header = document.getElementById("header-nav")
+            var modal{{project.slug|replaceMinus:'-'}} = document.getElementById("myModal{{project.slug|replaceMinus:'-'}}");
+            var clickModal{{project.slug|replaceMinus:'-'}} = document.getElementById("click-modal{{project.slug|replaceMinus:'-'}}")
+            var close{{project.slug|replaceMinus:'-'}} = document.getElementById("close{{project.slug|replaceMinus:'-'}}")
+            var span = document.getElementsByClassName("close")[0];
+
+            clickModal{{project.slug|replaceMinus:'-'}}.addEventListener("click", ()=>{
+                modal{{project.slug|replaceMinus:'-'}}.style.display = "flex"
+                header.style.display = "none"
+            })
+            close{{project.slug|replaceMinus:'-'}}.addEventListener(
+                "click", () =>{
+                    modal{{project.slug|replaceMinus:'-'}}.style.display = "none"
+                    header.style.display = "block"
+                }
+            )
+            window.addEventListener('click', (event) => {
+                if (event.target === modal{{project.slug|replaceMinus:'-'}}) {
+                    modal{{project.slug|replaceMinus:'-'}}.style.display = "none"
+                    header.style.display = "block"
+                }
+            })
+        </script>
+    {% endif %}
+{% endfor %}
+<!-- <script src="{% static 'js/modalPagePortfolio.js' %}"></script> -->
 {% endblock content %}

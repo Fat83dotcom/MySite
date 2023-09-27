@@ -69,17 +69,16 @@
             var close{{project.slug|replaceMinus:'-'}} = document.getElementById("close{{project.slug|replaceMinus:'-'}}")
             var span = document.getElementsByClassName("close")[0];
 
-            clickModal{{project.slug|replaceMinus:'-'}}.addEventListener("click", ()=>{
+            clickModal{{project.slug|replaceMinus:'-'}}.addEventListener("click", () =>{
                 modal{{project.slug|replaceMinus:'-'}}.style.display = "flex"
                 header.style.display = "none"
             })
-            close{{project.slug|replaceMinus:'-'}}.addEventListener(
-                "click", () =>{
+            close{{project.slug|replaceMinus:'-'}}.addEventListener("click", () =>{
                     modal{{project.slug|replaceMinus:'-'}}.style.display = "none"
                     header.style.display = "block"
                 }
             )
-            window.addEventListener('click', (event) => {
+            window.addEventListener('click', (event) =>{
                 if (event.target === modal{{project.slug|replaceMinus:'-'}}) {
                     modal{{project.slug|replaceMinus:'-'}}.style.display = "none"
                     header.style.display = "block"
@@ -88,5 +87,4 @@
         </script>
     {% endif %}
 {% endfor %}
-<!-- <script src="{% static 'js/modalPagePortfolio.js' %}"></script> -->
 {% endblock content %}

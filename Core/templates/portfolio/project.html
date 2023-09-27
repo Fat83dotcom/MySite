@@ -1,0 +1,18 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static '/css/styleProject.css' %}">
+</head>
+<article class="container w-50">
+    <div class="background-project">
+        <h2>{{ project.name }}</h2>
+        {{ project.descriptionBody | safe }}
+    </div>
+    <div class="project-link-container">
+        {% for link in project.linkProject.all %}
+            <div class="project-link">
+                <a href="{{ link.link }}" target="_blank" rel="noopener noreferrer">{{ link.name }}</a>
+            </div>
+        {% endfor %}
+    </div>
+</article>

@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<section class="container d-flex justify-content-evenly flex-column">
+<section class="container d-flex justify-content-center align-items-center flex-column">
     <h1 class="m-3 text-center blog-h1-color">{{siteSetup.title}}</h1>
     {% if siteSetup.show_Description %}
         <h3 class="m-3 text-center blog-h3-color">{{siteSetup.blog_description}}</h3>
     {% endif %}
     <hr>
     {% if posts %}
-        <div class="row container">
+        <div class="row container w-75">
             {% for post in posts %}
                 {% include 'partials/postCard.html'%}
             {% endfor %}

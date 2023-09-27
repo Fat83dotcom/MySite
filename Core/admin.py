@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import reverse
-from Core.models import Tag, Category, Page, Post
+from Core.models import Tag, Category, Post
 from Core.models import Portfolio, PortfolioProjects, ProjectsLinks
 from django_summernote.admin import SummernoteModelAdmin
 from django.utils.safestring import mark_safe
@@ -20,16 +20,6 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = 'id', 'name', 'slug'
     list_display_links = 'name', 'slug'
     list_filter = 'name', 'slug'
-    list_per_page = 10
-    ordering = '-id',
-
-
-@admin.register(Page)
-class PageAdmin(admin.ModelAdmin):
-    list_display = 'id', 'title', 'slug', 'isPublished', 'content'
-    search_fields = 'id', 'title', 'slug', 'isPublished'
-    list_display_links = 'title', 'slug', 'isPublished'
-    list_filter = 'title', 'slug'
     list_per_page = 10
     ordering = '-id',
 

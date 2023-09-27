@@ -1,4 +1,8 @@
-from Core.models import Post, Portfolio
+from typing import Any
+from django.db import models
+from django.db.models.query import QuerySet
+from django.http import HttpRequest, HttpResponse
+from Core.models import Post, Portfolio, PortfolioProjects
 from django.views import View
 from django.db.models import Q
 from django.shortcuts import render, redirect
@@ -95,10 +99,16 @@ class PortfolioView(View):
         return render(request, self.template_name, context)
 
 
-class PortfolioProjectView(View):
-    def get(self, request, *args, **kwargs):
-        return render()
+class PortfolioProjectView(DetailView):
+    model = PortfolioProjects
+    template_name = 'portfolio/project.html'
+    context_object_name = 'project'
+    slug_field = 'slug'
 
+    def get_queryset(self, *args, **kwargs):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(slug=self.kwargs.get('slug'))
+        return queryset
 
 
 class AboutView(View):

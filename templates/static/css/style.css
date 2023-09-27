@@ -7,7 +7,8 @@
     --border-post-card: #0c192c60;
     --font-color-content: #638fd1;
     --gray-post-status: #666;
-    --background-color-projects-portf: #6668
+    --background-color-projects-portf: #6668;
+    --background-color-projects-modal: #0c192c50; 
 }
 *{
     margin: 0;

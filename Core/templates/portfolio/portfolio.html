@@ -1,9 +1,10 @@
 {% extends 'base.html'%}
 {% load static %}
+{% load custom_filters %}
 {% block content %}
 <article class="container text-center">
     <h1 class="m-4">{{ portf.title }}</h1>
-    <h3 class="m-4">{{ portf.description }}</h3>
+    <h3 class="m-4 portf-h3-color">{{ portf.description }}</h3>
     <hr>
     <div class="container row d-flex justify-content-center">
         <h2>Meus Projetos</h2>

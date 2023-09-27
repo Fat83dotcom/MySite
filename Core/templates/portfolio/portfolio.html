@@ -6,24 +6,26 @@
     <h1 class="m-4">{{ portf.title }}</h1>
     <h3 class="m-4 portf-h3-color">{{ portf.description }}</h3>
     <hr>
-    <div class="container row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
         <h2>Meus Projetos</h2>
         {% for project in portf.portfolioProject.all %}
         {% if project.typeProject == 'P' and project.isPublished %}
-            <div class="m-4 d-flex justify-content-center col-lg-4 col-md-6 col-sm-12 css-portf-projects-a"
+            <div class="m-3 col-12"
                 style="background-image: url({{ project.pictures.url }});
                 overflow: hidden; object-fit: cover; border-radius: 3px;"
             >
-                <section class="m-4 d-flex flex-column justify-content-center css-portf-projects">
-                    <a href="#" id="click-modal{{project.slug|replaceMinus:'-'}}">
-                        <h1>{{ project.name | safe }}</h1>
-                        <p>{{ project.descriptionCard | safe }}</p>
-                    </a>
-                </section>
-                <div id="myModal{{project.slug|replaceMinus:'-'}}" class="modal">
-                    <div class="modal-content">
-                      <span id="close{{project.slug|replaceMinus:'-'}}" class="close">&times;</span>
-                      <iframe src="{% url 'portfProject' project.slug %}" frameborder="0"></iframe>
+                <div class="m-4 d-flex justify-content-center">
+                    <section class="d-flex flex-column justify-content-center css-portf-projects css-portf-projects-a">
+                        <a href="#" id="click-modal{{project.slug|replaceMinus:'-'}}">
+                            <h1>{{ project.name | safe }}</h1>
+                            <p>{{ project.descriptionCard | safe }}</p>
+                        </a>
+                    </section>
+                    <div id="myModal{{project.slug|replaceMinus:'-'}}" class="modal">
+                        <div class="modal-content">
+                        <span id="close{{project.slug|replaceMinus:'-'}}" class="close">&times;</span>
+                        <iframe src="{% url 'portfProject' project.slug %}" frameborder="0"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -31,31 +33,32 @@
         {% endfor %}
     </div>
     <hr>
-    <div class="container row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
         <h2>Projetos de Clientes</h2>
         {% for project in portf.portfolioProject.all %}
         {% if project.typeProject == 'C' and project.isPublished %}
-            <div class="m-4 d-flex justify-content-center col-lg-4 col-md-6 col-sm-12 css-portf-projects-a"
+            <div class="m-3 col-12"
                 style="background-image: url({{ project.pictures.url }});
                 overflow: hidden; object-fit: cover; border-radius: 3px;"
             >   
-                <section class="m-4 d-flex flex-column justify-content-center css-portf-projects">
-                    <a href="#" id="click-modal{{project.slug|replaceMinus:'-'}}">
-                        <h1>{{ project.name | safe }}</h1>
-                        <p>{{ project.descriptionCard | safe }}</p>
-                    </a>
-                </section>
-                <div id="myModal{{project.slug|replaceMinus:'-'}}" class="modal">
-                    <div class="modal-content">
-                      <span id="close{{project.slug|replaceMinus:'-'}}" class="close">&times;</span>
-                      <iframe src="{% url 'portfProject' project.slug %}" frameborder="0"></iframe>
+                <div class="m-4 d-flex justify-content-center">
+                    <section class="d-flex flex-column justify-content-center css-portf-projects css-portf-projects-a">
+                        <a href="#" id="click-modal{{project.slug|replaceMinus:'-'}}">
+                            <h1>{{ project.name | safe }}</h1>
+                            <p>{{ project.descriptionCard | safe }}</p>
+                        </a>
+                    </section>
+                    <div id="myModal{{project.slug|replaceMinus:'-'}}" class="modal">
+                        <div class="modal-content">
+                        <span id="close{{project.slug|replaceMinus:'-'}}" class="close">&times;</span>
+                        <iframe src="{% url 'portfProject' project.slug %}" frameborder="0"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
         {% endif %}
         {% endfor %}
     </div>
-
 </article>
 {% for project in portf.portfolioProject.all %}
     {% if project.isPublished %}

@@ -79,7 +79,8 @@ class PortfolioProjects(models.Model):
         ('C', 'Cliente'),
     )
     name = models.CharField(max_length=255)
-    description = models.TextField()
+    descriptionCard = models.CharField(max_length=512, default='')
+    descriptionBody = models.TextField(default='')
     typeProject = models.CharField(max_length=1, choices=PORJECT_CHOICE)
     portfolio = models.ForeignKey(
         Portfolio,

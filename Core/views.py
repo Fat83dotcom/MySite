@@ -1,7 +1,3 @@
-from typing import Any
-from django.db import models
-from django.db.models.query import QuerySet
-from django.http import HttpRequest, HttpResponse
 from Core.models import Post, Portfolio, PortfolioProjects
 from django.views import View
 from django.db.models import Q

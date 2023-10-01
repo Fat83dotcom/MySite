@@ -120,6 +120,35 @@ footer {
     text-decoration: none;
 }
 
+.menu-lateral-right{
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    background-color: var(--font-color-content);
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.menu-lateral-left{
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    background-color: var(--font-color-content);
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.menu-lateral-right a{
+    text-decoration: none;
+}
+
+.menu-lateral-left a{
+    text-decoration: none;
+}
+
 /* .limit-size {
     width: 300px;
     height: 150px;

@@ -168,9 +168,14 @@ class Post(models.Model):
     categoryKey = models.ForeignKey(
         Category, on_delete=models.SET_NULL,
         null=True, blank=True,
+        related_name='categoryRel',
         default=None
     )
-    tagKey = models.ManyToManyField(Tag, blank=True, default='')
+    tagKey = models.ManyToManyField(
+        Tag, blank=True,
+        default='',
+        related_name='tagsRel'
+    )
     slug = models.SlugField(
         unique=True,
         default='',

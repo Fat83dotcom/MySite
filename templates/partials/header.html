@@ -1,25 +1,39 @@
-<nav id="header-nav" class="header-nav container-fluid">
-    <div class="header d-flex justify-content-end align-self-center h-100">
-        {% if siteSetup.show_Search %}
+<nav id="header-nav" class="navbar navbar-dark navbar-expand-md bg-light fixed-top header-nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Fernando Mendes Web Developer</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav d-flex justify-content-end flex-grow-1 pe-4">
+            <li class="nav-item d-flex flex-row">
+                {% for link in siteSetup.menulink_set.all%}
+                {% if link.new_tab%}
+                    <a class="nav-link m-2" href="{{link.url_Or_Path}}">{{link.text}}</a>
+                {% else %}
+                    <a class="nav-link m-2" href="{{link.url_Or_Path}}">{{link.text}}</a>
+                {% endif %}
+            {% endfor %}
+            </li>
+          </ul>
+          {% if siteSetup.show_Search %}
             <form class="d-flex align-items-end" action="{% url 'search' %}" method="get" id="searchInput">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="searchInput" name="search" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" required>
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="searchInput">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                         </svg>
                     </button>
                 </div>
             </form>
-        {% endif %}
-        <div class="d-flex justify-content-around align-items-center w-75">
-            {% for link in siteSetup.menulink_set.all%}
-                {% if link.new_tab%}
-                    <a href="{{link.url_Or_Path}}" target="_blank">{{link.text}}</a>
-                {% else %}
-                    <a href="{{link.url_Or_Path}}">{{link.text}}</a>
-                {% endif %}
-            {% endfor %}
+          {% endif %}
         </div>
+      </div>
     </div>
 </nav>

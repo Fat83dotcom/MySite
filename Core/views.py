@@ -1,3 +1,4 @@
+from typing import Any
 from Core.models import Post, Portfolio, PortfolioProjects
 from django.views import View
 from django.db.models import Q
@@ -9,8 +10,10 @@ PER_PAGE = 9
 
 
 class IndexView(View):
+    title = 'Home'
+
     def get(self, request):
-        return render(request, 'site/index.html')
+        return render(request, 'site/index.html', {'title': self.title})
 
 
 class BlogView(ListView):
@@ -19,6 +22,12 @@ class BlogView(ListView):
     context_object_name = 'posts'
     ordering = '-id',
     paginate_by = PER_PAGE
+    title = 'Artigos'
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.title
+        return context
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -31,6 +40,12 @@ class BlogPostView(DetailView):
     context_object_name = 'post'
     template_name = 'blog/post.html'
     queryset = Post.objects.getIsPublished()
+    title = 'Artigo'
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.title
+        return context
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -85,12 +100,14 @@ class SearchView(BlogView):
 
 class PortfolioView(View):
     template_name = 'portfolio/portfolio.html'
+    title = 'Portfólio'
 
     def get(self, request, *args, **kwargs):
         result = Portfolio.objects.all().first()
         print(result)
         context = {
             'portf': result,
+            'title': self.title,
         }
         return render(request, self.template_name, context)
 
@@ -108,5 +125,7 @@ class PortfolioProjectView(DetailView):
 
 
 class AboutView(View):
+    title = 'Contato'
+
     def get(self, request):
-        return render(request, 'about/about.html')
+        return render(request, 'about/about.html', {'title': self.title})

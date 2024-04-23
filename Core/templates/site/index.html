@@ -2,8 +2,10 @@
 {% load static %}
 
 {%block content%}
-    <section class="content-index">
-        <h1 class="m-5 text-end index-h1-color">{{siteSetup.title}}</h1>
+
+<section class="content-index hero-area">
+    <div class="container d-flex flex-column align-items-end">
+        <h1 class="m-4 index-h1-color">{{siteSetup.title}}</h1>
         {% if siteSetup.show_Description %}
             <h5 class="m-5 text-end index-h5-color">{{siteSetup.index_description_1}}</h5>
             <div class="m-5 text-end">

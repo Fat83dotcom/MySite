@@ -1,5 +1,5 @@
 from django.contrib import admin
-from SiteSetup.models import MenuLink, SiteSetup
+from SiteSetup.models import MenuLink, SiteSetup, SiteSetupPicture
 
 
 class MenuLinkInLine(admin.TabularInline):
@@ -20,3 +20,10 @@ class SiteSetupAdmin(admin.ModelAdmin):
         'index_description_2', 'blog_description'
     )
     inlines = MenuLinkInLine,
+
+
+@admin.register(SiteSetupPicture)
+class SiteSetupPicture(admin.ModelAdmin):
+    list_display = (
+        'name',
+    )

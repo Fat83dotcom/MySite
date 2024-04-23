@@ -48,7 +48,7 @@ footer{
     height: 100vh;
     top: 0px;
     left: 0px;
-    z-index: 1;
+    z-index: -1;
     overflow: hidden;
 }
 .bubbles {
@@ -103,4 +103,16 @@ svg:hover{
     rgba(11, 228, 58, 0.6) 0px 0px 100px;
     background: rgba(11, 228, 58, 0.6);
     margin: 0px 4px;
+}
+
+.curves-eff{
+    width: 100%;
+    height: 100px;
+    background-color:var(--font-color-content); /* Cor de fundo azul */
+    border-top-left-radius: 500px; /* Raio de 100px na borda superior esquerda */
+    border-bottom-right-radius: 500px; /* Raio de 100px na borda superior direita */
+}
+
+.hero-area {
+    height: 100vh;
 }

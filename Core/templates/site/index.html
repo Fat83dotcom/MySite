@@ -7,10 +7,10 @@
     <div class="container d-flex flex-column align-items-end">
         <h1 class="m-4 index-h1-color">{{siteSetup.title}}</h1>
         {% if siteSetup.show_Description %}
-            <h5 class="m-5 text-end index-h5-color">{{siteSetup.index_description_1}}</h5>
-            <div class="m-5 text-end">
-                <p>Posso ajudar você e sua empresa a criar Sites, Aplicações Web, Modelo de Sistemas e Banco de Dados modernos, personalizados e que se adaptam às suas necessidades e demandas. Entre em <a href="{% url 'about'%}"><span>contato </span></a> e agende um orçamento sem compromisso.</p>
-            </div>
+        <h5 class="m-1 index-h5-color">{{siteSetup.index_description_1}}</h5>
+        <div class="w-50 ">
+            <p class="text-start index-h1-color">{{siteSetup.index_description_2}}</p>
+        </div>
         {% endif %}
         <div class="container d-flex justify-content-evenly index-h1-color row" id="icons">
             <div class="text-center col">

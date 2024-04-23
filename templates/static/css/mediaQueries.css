@@ -1,4 +1,7 @@
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
+    .hero-area{
+        height: auto;
+    }
     .menu-lateral-right{
         display: none;
     }

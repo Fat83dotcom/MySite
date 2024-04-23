@@ -61,7 +61,23 @@ class SiteSetup(models.Model):
             favIconChanged = currentFaviconName != self.fav_icon.name
 
         if favIconChanged:
-            resizeImage(self.fav_icon, 32)
+            resizeImage(self.fav_icon, 200)
 
     def __str__(self) -> str:
         return self.title
+
+
+class SiteSetupPicture(models.Model):
+    name = models.CharField(max_length=255)
+    pic = models.ImageField(upload_to='pics_index', default='pic')
+
+    def save(self, *args, **kwargs) -> None:
+        current_name = str(self.name)
+        super().save(*args, **kwargs)
+        pic_changed = current_name = False
+
+        if self.pic:
+            pic_changed = current_name != self.name
+
+        if pic_changed:
+            resizeImage(self.pic, 500)

@@ -41,32 +41,94 @@
                     <path
                         d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0zm-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3h-7zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
                 </svg>
-                <h6 class="m-3">Análise de Sistemas</h6>
-            </div>
-        </div>
-        <div>
-            
-        </div>
-    </section>
-    <div class="d-flex justify-content-start conteiner-bubbles">
-        <div class="bubbles" id="bubbles">
-            <span style="--i:12"></span>
-            <span style="--i:1"></span>
-            <span style="--i:28"></span>
-            <span style="--i:14"></span>
-            <span style="--i:16"></span>
-            <span style="--i:8"></span>
-            <span style="--i:19"></span>
-            <span style="--i:26"></span>
-            <span style="--i:2"></span>
-            <span style="--i:5"></span>
-            <span style="--i:35"></span>
-            <span style="--i:17"></span>
-            <span style="--i:6"></span>
-            <span style="--i:30"></span>
-            <span style="--i:10"></span>
+                <h6 class="m-3">Bots de Vendas</h6>
+            </a>
         </div>
     </div>
-    <script src="{% static '/js/bubblesChangeOpacity.js'%}"></script>
-    <script src="{% static '/js/iconsChangesOpacity.js'%}"></script>
+</section>
+
+<section class="container-fluid">
+    <div class="d-flex flex-column align-items-center m-3">
+        <div class="curves-eff d-flex align-items-center justify-content-center">
+            <h2 class="text-center" id="market">{{siteSetup.title_2}}</h2>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            {% for pic in siteSetupPic %}
+            {%if pic.name == 'marketing_1'%}
+            <img class="img-fluid" src="{{pic.pic.url}}" alt="{{pic.name}}">
+            {% endif %}
+            {% endfor %}
+            <div class="p-3">
+                <p class="text-start">
+                    {{siteSetup.index_description_3}}
+                </p>
+                <p class="text-start">
+                    {{siteSetup.index_description_3_1}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-column align-items-center m-3">
+        <div class="curves-eff d-flex align-items-center justify-content-center">
+            <h2 class="text-center" id="site">{{siteSetup.title_3}}</h2>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            {% for pic in siteSetupPic %}
+            {%if pic.name == 'site_1'%}
+            <img class="img-fluid" src="{{pic.pic.url}}" alt="{{pic.name}}">
+            {% endif %}
+            {% endfor %}
+            <div class="p-3">
+                <p class="text-start">
+                    {{siteSetup.index_description_4}}
+                </p>
+                <p class="text-start">
+                    {{siteSetup.index_description_4_1}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-column align-items-center m-3">
+        <div class="curves-eff d-flex align-items-center justify-content-center">
+            <h2 class="text-center" id="bot">{{siteSetup.title_4}}</h2>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            {% for pic in siteSetupPic %}
+            {%if pic.name == 'bot_1'%}
+            <img class="img-fluid" src="{{pic.pic.url}}" alt="{{pic.name}}">
+            {% endif %}
+            {% endfor %}
+            <div class="p-3">
+                <p>
+                    {{siteSetup.index_description_5}}
+                </p>
+                <p>
+                    {{siteSetup.index_description_5_1}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="d-flex justify-content-start conteiner-bubbles">
+    <div class="bubbles" id="bubbles">
+        <span style="--i:12"></span>
+        <span style="--i:1"></span>
+        <span style="--i:28"></span>
+        <span style="--i:14"></span>
+        <span style="--i:16"></span>
+        <span style="--i:8"></span>
+        <span style="--i:19"></span>
+        <span style="--i:26"></span>
+        <span style="--i:2"></span>
+        <span style="--i:5"></span>
+        <span style="--i:35"></span>
+        <span style="--i:17"></span>
+        <span style="--i:6"></span>
+        <span style="--i:30"></span>
+        <span style="--i:10"></span>
+    </div>
+</div>
+<script src="{% static '/js/bubblesChangeOpacity.js'%}"></script>
+<script src="{% static '/js/iconsChangesOpacity.js'%}"></script> 
 {%endblock content%}

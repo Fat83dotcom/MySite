@@ -112,7 +112,33 @@ svg:hover{
     border-top-left-radius: 500px; /* Raio de 100px na borda superior esquerda */
     border-bottom-right-radius: 500px; /* Raio de 100px na borda superior direita */
 }
-
 .hero-area {
     height: 100vh;
+}
+.shadow-index{
+    box-shadow: 1px 1px 10px 2px rgba(255, 255, 255, 0.2);
+}
+.anime-icons-index-up{
+    animation: backInUp;
+    animation-duration: 2s;
+}
+.anime-icons-index-left{
+    animation: backInLeft;
+    animation-duration: 2s;
+}
+.anime-icons-index-right{
+    animation: backInRight;
+    animation-duration: 2s;
+}
+.anime-index-text-down{
+    animation: backInDown;
+    animation-duration: 2s;
+}
+.animated-eff-1, .animated-eff-2, .animated-eff-3,
+.animated-pic-1, .animated-pic-2, .animated-pic-3,
+.animated-text-1, .animated-text-2, .animated-text-3{
+    opacity: 0;
+}
+.animated-eff-end{
+    opacity: 1;
 }

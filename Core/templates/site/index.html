@@ -49,16 +49,16 @@
 
 <section class="container-fluid">
     <div class="d-flex flex-column align-items-center m-3">
-        <div class="curves-eff d-flex align-items-center justify-content-center">
+        <div class="curves-eff shadow-index d-flex align-items-center justify-content-center animated-eff-1">
             <h2 class="text-center" id="market">{{siteSetup.title_2}}</h2>
         </div>
         <div class="d-flex justify-content-center align-items-center">
             {% for pic in siteSetupPic %}
             {%if pic.name == 'marketing_1'%}
-            <img class="img-fluid" src="{{pic.pic.url}}" alt="{{pic.name}}">
+            <img class="img-fluid shadow-index animated-pic-1" src="{{pic.pic.url}}" alt="{{pic.name}}">
             {% endif %}
             {% endfor %}
-            <div class="p-3">
+            <div class="d-flex flex-column align-items-center p-3 animated-text-1">
                 <p class="text-start">
                     {{siteSetup.index_description_3}}
                 </p>
@@ -69,16 +69,16 @@
         </div>
     </div>
     <div class="d-flex flex-column align-items-center m-3">
-        <div class="curves-eff d-flex align-items-center justify-content-center">
+        <div class="curves-eff shadow-index d-flex align-items-center justify-content-center animated-eff-2">
             <h2 class="text-center" id="site">{{siteSetup.title_3}}</h2>
         </div>
         <div class="d-flex justify-content-center align-items-center">
             {% for pic in siteSetupPic %}
             {%if pic.name == 'site_1'%}
-            <img class="img-fluid" src="{{pic.pic.url}}" alt="{{pic.name}}">
+            <img class="img-fluid shadow-index animated-pic-2" src="{{pic.pic.url}}" alt="{{pic.name}}">
             {% endif %}
             {% endfor %}
-            <div class="p-3">
+            <div class="d-flex flex-column align-items-center p-3 animated-text-2">
                 <p class="text-start">
                     {{siteSetup.index_description_4}}
                 </p>
@@ -89,16 +89,16 @@
         </div>
     </div>
     <div class="d-flex flex-column align-items-center m-3">
-        <div class="curves-eff d-flex align-items-center justify-content-center">
+        <div class="curves-eff shadow-index  d-flex align-items-center justify-content-center animated-eff-3">
             <h2 class="text-center" id="bot">{{siteSetup.title_4}}</h2>
         </div>
         <div class="d-flex justify-content-center align-items-center">
             {% for pic in siteSetupPic %}
             {%if pic.name == 'bot_1'%}
-            <img class="img-fluid" src="{{pic.pic.url}}" alt="{{pic.name}}">
+            <img class="img-fluid shadow-index animated-pic-3" src="{{pic.pic.url}}" alt="{{pic.name}}">
             {% endif %}
             {% endfor %}
-            <div class="p-3">
+            <div class="d-flex flex-column align-items-center p-3 animated-text-3">
                 <p>
                     {{siteSetup.index_description_5}}
                 </p>
@@ -130,5 +130,6 @@
     </div>
 </div>
 <script src="{% static '/js/bubblesChangeOpacity.js'%}"></script>
-<script src="{% static '/js/iconsChangesOpacity.js'%}"></script> 
+<script src="{% static '/js/iconsChangesOpacity.js'%}"></script>
+<script src="{% static '/js/animateElements.js'%}"></script>
 {%endblock content%}
